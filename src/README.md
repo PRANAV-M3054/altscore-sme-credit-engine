@@ -134,19 +134,48 @@ Dropping outlier rows loses real applicants from our training data. Capping clip
 
 ---
 
-## 🔜 Coming Next
+└── simulate_gst_data.py   ← Phase 2: GST data simulation ✅
 
-| Script | Phase | Status |
-|--------|-------|--------|
-| `simulate_gst_data.py` | Phase 2 | Next up |
-| `build_features.py` | Phase 4 | Upcoming |
-| `train_model.py` | Phase 5 | Upcoming |
-| `explain_model.py` | Phase 5 | Upcoming |
-| `rejection_letter.py` | Phase 6 | Upcoming |
-| `sql_chatbot.py` | Phase 6 | Upcoming |
-| `main.py` (FastAPI) | Phase 7 | Upcoming |
 
 ---
 
-*Last updated: March 2026*
-*Project: AltScore — SME Credit Intelligence Engine*
+## 🏭 simulate_gst_data.py
+
+**Location:** `src/data/simulate_gst_data.py`  
+**Phase:** 2 — Data Simulation  
+**Input:** `data/processed/application_cleaned.csv`  
+**Output:** `data/simulated/gst_data.csv` (11.3 MB)
+
+### What it does
+Generates synthetic GST filing records for all 307,511 applicants.
+Since real GST data is private, we simulate it using statistical 
+patterns linked to loan default behaviour.
+
+### Features generated
+
+| Feature | Range | What it means |
+|---------|-------|---------------|
+| `GST_REGISTERED` | 0 or 1 | Is business GST registered? |
+| `GST_FILING_COMPLIANCE` | 0 to 1 | % of quarters filed on time |
+| `GST_QUARTERLY_TURNOVER` | Rupees | Average quarterly revenue |
+| `GST_TURNOVER_GROWTH` | -1 to 1 | Revenue growth trend |
+| `GST_FILING_STREAK` | 0 to 8 | Consecutive on-time quarters |
+| `CASH_FLOW_RATIO` | 0.5 to 2.0 | Monthly inflow vs outflow |
+| `GST_PENALTY_COUNT` | 0 to 5 | Late filing penalties |
+
+### Validation results
+
+| Metric | Non-defaulter | Defaulter |
+|--------|--------------|-----------|
+| GST compliance | 0.747 | 0.450 |
+| Filing streak | 6.004 | 2.003 |
+| Cash flow ratio | 1.550 | 0.851 |
+| Penalty count | 0.501 | 3.003 |
+
+The clear separation between defaulters and non-defaulters confirms
+the synthetic data carries meaningful signal for our ML model.
+
+### How to run
+```bash
+python src/data/simulate_gst_data.py
+```
