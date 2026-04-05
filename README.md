@@ -365,6 +365,32 @@ All charts saved in `reports/figures/`:
 **Target Role:** AI Engineer
 **Domain:** Indian Fintech / Banking
 
+## 📸 Application Screenshots
+
+### 🏠 Home Page
+![Home Page](reports/screenshots/01_home.png)
+> Live KPI metrics — 3,07,511 applicants, 71,627 SMEs, AUC 0.9999, 8.07% default rate
+
+---
+
+### 📋 Loan Eligibility Checker
+![Loan Eligibility](reports/screenshots/02_loan_eligibility.png)
+> Small business owners fill in their profile and get instant AI-powered loan decisions
+
+---
+
+### 💬 Loan Officer Chatbot
+![Chatbot](reports/screenshots/03_chatbot.png)
+> Plain English questions → Auto-generated SQL → Instant answers from live database
+
+---
+
+### 📊 Portfolio Dashboard
+![Dashboard](reports/screenshots/04_dashboard.png)
+> Live charts from PostgreSQL — default rates, GST compliance analysis, SME breakdown
+
+
+
 ---
 
 ## 👤 Author
