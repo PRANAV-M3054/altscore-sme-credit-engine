@@ -371,7 +371,7 @@ All charts saved in `reports/figures/`:
 
 **Pranav**
 MS Big Data Analytics — Semester 4
-GitHub: github.com/YOUR_USERNAME
+GitHub: https://github.com/PRANAV-M3054
 
 ---
 
